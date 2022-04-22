@@ -1,0 +1,15 @@
+{
+  
+    "compilerOptions": {
+      "allowJs": true,
+      "module": "system",
+      "noImplicitAny": false,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "outFile": "../../built/local/tsc.js",
+      "sourceMap": true
+    },
+    "include": ["index.js"],
+    "exclude": ["node_modules"]
+
+}
