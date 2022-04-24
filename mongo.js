@@ -6,8 +6,8 @@ if (process.argv.length < 3) {
 }
 if(process.argv.length>5)
 {
-    console.log('Please provide only password, name and number as argument : node mongo.js <password> <name> <number>')
-    process.exit(1)
+  console.log('Please provide only password, name and number as argument : node mongo.js <password> <name> <number>')
+  process.exit(1)
 }
 
 const password = process.argv[2]
@@ -16,8 +16,7 @@ const number = process.argv[4]
 
 
 
-const url =
-  `mongodb+srv://ClaraS:${password}@cluster0.jdtq7.mongodb.net/phonebookapp?retryWrites=true&w=majority`
+const url = `mongodb+srv://ClaraS:${password}@cluster0.jdtq7.mongodb.net/phonebookapp?retryWrites=true&w=majority`
 
 mongoose.connect(url)
 
@@ -35,20 +34,19 @@ const person = new Person({
 
 if(process.argv.length > 3)
 {
-    person.save().then(() => {
-        console.log(`added ${person_name} number ${number} to phonebook`)
-        mongoose.connection.close()
-      })
+  person.save()
+    .then(() => {
+      console.log(`added ${person_name} number ${number} to phonebook`)
+      mongoose.connection.close()
+    })
 }
-else 
+else
 {
-    Person.find({}).then((people) => {
-        console.log("phonebook:")
-        people.forEach((person) => {
-          console.log(`${person.name} ${person.number}`)
-        })
-        mongoose.connection.close()
-      })
+  Person.find({}).then((people) => {
+    console.log('phonebook:')
+    people.forEach((person) => {
+      console.log(`${person.name} ${person.number}`)
+    })
+    mongoose.connection.close()
+  })
 }
-   
-  
